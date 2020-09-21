@@ -1,0 +1,262 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* adding your own fonts */
+
+@font-face{
+    font-family: PopLight;
+    src: url(./fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+    font-family: PopRegular;
+    src: url(./fonts/Poppins-Regular.ttf);
+}
+
+body{
+    font-family: PopLight;
+}
+
+.portfolio{
+    color: white;
+    background: radial-gradient(rgba(43,55,96,1), rgba(11,16,35,1));
+}
+
+nav{
+    min-height: 10vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.logo{
+    font-size: 20px;
+}
+
+.page{
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+}
+
+.hero{
+    overflow: hidden;
+    height: 500px;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+}
+
+.hero img{
+    height: 500px;
+    transition: transform 0.4s ease-out;
+    cursor: pointer;
+}
+
+.model-right{
+    transform: translate(0,10%);
+}
+
+.model-left{
+    transform: translate(0,-10%);
+}
+
+.hero:hover .model-right{
+    transform: translate(0%,0%);
+}
+
+.hero:hover .model-left{
+    transform: translate(0%,0%);
+}
+
+.details{
+    grid-column: 2/3;
+    align-self: end;
+}
+
+.details h1{
+    font-size: 40px;
+    font-family: PopRegular;
+}
+
+.details h2{
+    font-size: 20px;
+    padding: 10px 0px;
+}
+
+.details p{
+    font-size: 14px;
+    padding: 10px 0px 35px 0px;
+}
+
+.pages{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    /*dead center position*/
+}
+
+.pages > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pages h3{
+    font-size: 20px;
+    padding: 25px;
+}
+
+.pages svg{
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.5);
+}
+
+.pages svg:hover{
+    animation: dot 0.6s ease-in-out infinite alternate;
+}
+
+.pages svg:active {
+    opacity: 1;
+}
+
+@keyframes dot{
+    0%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(3);
+    }
+}
+
+.banner{
+    height: 50vh;
+    width: 100%;
+    position: relative;
+}
+
+.banner img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.author{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.author h1{
+    font-size: 42px;
+}
+
+.author h3{
+    font-size: 32px;
+    padding: 10px 0px;
+}
+
+.story,.my-work{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    padding: 80px 0px;
+}
+
+.story-description, .work-description{
+    width: 50%;
+}
+
+.story-description h3, .work-description h3{
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+
+.story-description p, .work-description p{
+    font-size: 16px;
+    padding: 20px 0px;
+}
+
+.work-gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+}
+
+.work-gallery img{
+    width: 100%;
+}
+
+@media (max-width: 1024px){
+    .page{
+        grid-template-columns: 5% 1fr 5%;
+        grid-template-rows: 2fr 1fr;
+        align-items: center;
+    }
+    .hero{
+        grid-column: 2/3;
+        height: auto;
+    }
+    .hero img{
+        height: 450px;
+    }
+    .details{
+        grid-row: 2/3;
+        grid-column: 2/3;
+        text-align: center;
+    }
+
+    .details h1{
+        font-size: 30px;
+    }
+    .details h2{
+        font-size: 20px;
+    }
+
+    .story, .my-work{
+        flex-direction: column-reverse;
+    }
+    
+    .story-description, .work-description{
+        width: 100%;
+    }
+
+    .work-gallery{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding-bottom: 20px;
+    }
+
+    .profile{
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px){
+    .hero img{
+        height: 350px;
+    }
+
+    .details h1{
+        font-size: 22px;
+    }
+
+    .details h2{
+        font-size: 14px;
+    }
+}
